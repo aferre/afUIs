@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		385632CA143608800068E132 /* afUIs-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 385632CD143608800068E132 /* Build configuration list for PBXAggregateTarget "afUIs-Universal" */;
+			buildPhases = (
+				385632CF143608880068E132 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "afUIs-Universal";
+			productName = "afUIs-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		383C3F8414339FE1000132A8 /* afSwipableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383C3F6714339FE1000132A8 /* afSwipableView.m */; };
 		383C3F8514339FE1000132A8 /* arrowL_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 383C3F6814339FE1000132A8 /* arrowL_new.png */; };
@@ -39,6 +53,13 @@
 		383C406D1433A370000132A8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C40611433A35C000132A8 /* Security.framework */; };
 		383C406E1433A370000132A8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C40621433A35C000132A8 /* SystemConfiguration.framework */; };
 		383C40701433A397000132A8 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C406F1433A397000132A8 /* libxml2.2.dylib */; };
+		385632D01436093B0068E132 /* afHorizontalStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383C400E1433A271000132A8 /* afHorizontalStackedView.m */; };
+		385632D11436093B0068E132 /* afStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383C40101433A271000132A8 /* afStackedView.m */; };
+		385632D21436093B0068E132 /* afVerticalStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383C40121433A271000132A8 /* afVerticalStackedView.m */; };
+		385632D31436093B0068E132 /* afHorizontalListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1701435E1F100823E0E /* afHorizontalListView.m */; };
+		385632D41436093B0068E132 /* afVerticalListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E17A1435E1F100823E0E /* afVerticalListView.m */; };
+		385632D51436093B0068E132 /* afListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1721435E1F100823E0E /* afListView.m */; };
+		385632D61436093B0068E132 /* afListViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1741435E1F100823E0E /* afListViewContainer.m */; };
 		386257D01434939900DD019B /* afASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257C71434939900DD019B /* afASIHTTPRequest.m */; };
 		386257D11434939900DD019B /* afASIQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257C91434939900DD019B /* afASIQueue.m */; };
 		386257D21434939900DD019B /* afNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257CB1434939900DD019B /* afNetwork.m */; };
@@ -198,6 +219,18 @@
 		38C6E1801435E1F100823E0E /* afVerticalListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E17A1435E1F100823E0E /* afVerticalListView.m */; };
 		38C6E1841435E38200823E0E /* afListViewTimed.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1831435E38200823E0E /* afListViewTimed.m */; };
 		38D4ADFA1436047100D67E9E /* afExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4ADF91436047100D67E9E /* afExtensions.framework */; };
+		38D4AE01143606DF00D67E9E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4AE00143606DF00D67E9E /* CoreFoundation.framework */; };
+		38D4AE07143606DF00D67E9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38D4AE05143606DF00D67E9E /* InfoPlist.strings */; };
+		38D4AE0D143607B000D67E9E /* afHorizontalStackedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 383C400D1433A271000132A8 /* afHorizontalStackedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE0E143607B000D67E9E /* afStackedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 383C400F1433A271000132A8 /* afStackedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE0F143607B000D67E9E /* afVerticalStackedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 383C40111433A271000132A8 /* afVerticalStackedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE10143607B000D67E9E /* afHorizontalListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C6E16F1435E1F100823E0E /* afHorizontalListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE11143607B000D67E9E /* afVerticalListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C6E1791435E1F100823E0E /* afVerticalListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE12143607B000D67E9E /* afListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C6E1711435E1F100823E0E /* afListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE13143607B000D67E9E /* afListViewContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C6E1731435E1F100823E0E /* afListViewContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D4AE161436081200D67E9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C40601433A35C000132A8 /* QuartzCore.framework */; };
+		38D4AE171436081200D67E9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3882036214339F500053F6AE /* UIKit.framework */; };
+		38D4AE181436081900D67E9E /* afExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4ADF91436047100D67E9E /* afExtensions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -444,6 +477,11 @@
 		38C6E1821435E38200823E0E /* afListViewTimed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afListViewTimed.h; sourceTree = "<group>"; };
 		38C6E1831435E38200823E0E /* afListViewTimed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afListViewTimed.m; sourceTree = "<group>"; };
 		38D4ADF91436047100D67E9E /* afExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = afExtensions.framework; sourceTree = "<group>"; };
+		38D4ADFF143606DF00D67E9E /* afUIs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = afUIs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38D4AE00143606DF00D67E9E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		38D4AE04143606DF00D67E9E /* afUIs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "afUIs-Info.plist"; sourceTree = "<group>"; };
+		38D4AE06143606DF00D67E9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38D4AE08143606DF00D67E9E /* afUIs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "afUIs-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +500,17 @@
 				3882036514339F500053F6AE /* Foundation.framework in Frameworks */,
 				3882036714339F500053F6AE /* CoreGraphics.framework in Frameworks */,
 				38D4ADFA1436047100D67E9E /* afExtensions.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38D4ADFC143606DF00D67E9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D4AE01143606DF00D67E9E /* CoreFoundation.framework in Frameworks */,
+				38D4AE161436081200D67E9E /* QuartzCore.framework in Frameworks */,
+				38D4AE181436081900D67E9E /* afExtensions.framework in Frameworks */,
+				38D4AE171436081200D67E9E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				3882036814339F500053F6AE /* afUIsDemo */,
+				38D4AE02143606DF00D67E9E /* afUIs */,
 				3882036114339F500053F6AE /* Frameworks */,
 				3882035F14339F500053F6AE /* Products */,
 			);
@@ -655,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				3882035E14339F500053F6AE /* afUIsDemo.app */,
+				38D4ADFF143606DF00D67E9E /* afUIs.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -675,6 +726,7 @@
 				3882036214339F500053F6AE /* UIKit.framework */,
 				3882036414339F500053F6AE /* Foundation.framework */,
 				3882036614339F500053F6AE /* CoreGraphics.framework */,
+				38D4AE00143606DF00D67E9E /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -892,7 +944,42 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		38D4AE02143606DF00D67E9E /* afUIs */ = {
+			isa = PBXGroup;
+			children = (
+				38D4AE03143606DF00D67E9E /* Supporting Files */,
+			);
+			path = afUIs;
+			sourceTree = "<group>";
+		};
+		38D4AE03143606DF00D67E9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38D4AE04143606DF00D67E9E /* afUIs-Info.plist */,
+				38D4AE05143606DF00D67E9E /* InfoPlist.strings */,
+				38D4AE08143606DF00D67E9E /* afUIs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		38D4AE0C1436079600D67E9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D4AE0D143607B000D67E9E /* afHorizontalStackedView.h in Headers */,
+				38D4AE0E143607B000D67E9E /* afStackedView.h in Headers */,
+				38D4AE0F143607B000D67E9E /* afVerticalStackedView.h in Headers */,
+				38D4AE10143607B000D67E9E /* afHorizontalListView.h in Headers */,
+				38D4AE11143607B000D67E9E /* afVerticalListView.h in Headers */,
+				38D4AE12143607B000D67E9E /* afListView.h in Headers */,
+				38D4AE13143607B000D67E9E /* afListViewContainer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		3882035D14339F500053F6AE /* afUIsDemo */ = {
@@ -911,6 +998,24 @@
 			productName = afUIsDemo;
 			productReference = 3882035E14339F500053F6AE /* afUIsDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		38D4ADFE143606DF00D67E9E /* afUIs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38D4AE09143606DF00D67E9E /* Build configuration list for PBXNativeTarget "afUIs" */;
+			buildPhases = (
+				38D4ADFB143606DF00D67E9E /* Sources */,
+				38D4ADFC143606DF00D67E9E /* Frameworks */,
+				38D4ADFD143606DF00D67E9E /* Resources */,
+				38D4AE0C1436079600D67E9E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = afUIs;
+			productName = afUIs;
+			productReference = 38D4ADFF143606DF00D67E9E /* afUIs.framework */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -933,6 +1038,8 @@
 			projectRoot = "";
 			targets = (
 				3882035D14339F500053F6AE /* afUIsDemo */,
+				38D4ADFE143606DF00D67E9E /* afUIs */,
+				385632CA143608800068E132 /* afUIs-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -1083,7 +1190,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		38D4ADFD143606DF00D67E9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D4AE07143606DF00D67E9E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		385632CF143608880068E132 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=afUIs\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3882035A14339F500053F6AE /* Sources */ = {
@@ -1135,6 +1266,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		38D4ADFB143606DF00D67E9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				385632D01436093B0068E132 /* afHorizontalStackedView.m in Sources */,
+				385632D11436093B0068E132 /* afStackedView.m in Sources */,
+				385632D21436093B0068E132 /* afVerticalStackedView.m in Sources */,
+				385632D31436093B0068E132 /* afHorizontalListView.m in Sources */,
+				385632D41436093B0068E132 /* afVerticalListView.m in Sources */,
+				385632D51436093B0068E132 /* afListView.m in Sources */,
+				385632D61436093B0068E132 /* afListViewContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -1162,9 +1307,31 @@
 			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
+		38D4AE05143606DF00D67E9E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38D4AE06143606DF00D67E9E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		385632CB143608800068E132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		385632CC143608800068E132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3882037D14339F500053F6AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1238,9 +1405,73 @@
 			};
 			name = Release;
 		};
+		38D4AE0A143606DF00D67E9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "afUIs/afUIs-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "afUIs/afUIs-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		38D4AE0B143606DF00D67E9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "afUIs/afUIs-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "afUIs/afUIs-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		385632CD143608800068E132 /* Build configuration list for PBXAggregateTarget "afUIs-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				385632CB143608800068E132 /* Debug */,
+				385632CC143608800068E132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3882035814339F500053F6AE /* Build configuration list for PBXProject "afUIsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1255,6 +1486,15 @@
 			buildConfigurations = (
 				3882038014339F500053F6AE /* Debug */,
 				3882038114339F500053F6AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38D4AE09143606DF00D67E9E /* Build configuration list for PBXNativeTarget "afUIs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38D4AE0A143606DF00D67E9E /* Debug */,
+				38D4AE0B143606DF00D67E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

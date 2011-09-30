@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>afUIs-Universal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>afUIs.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>afUIsDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>385632CA143608800068E132</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3882035D14339F500053F6AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>38D4ADFE143606DF00D67E9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
