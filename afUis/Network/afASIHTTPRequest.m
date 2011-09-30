@@ -1,6 +1,6 @@
 #import "afASIHTTPRequest.h"
-#import "afStringExt.h"
-#import "NSFileManagerExtensions.h"
+#import <afExtensions/afStringExtensions.h>
+#import <afExtensions/afFileManagerExtensions.h>
 
 @implementation afASIHTTPRequest
 @synthesize afDelegate, priority;

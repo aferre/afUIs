@@ -10,7 +10,6 @@
 #import "afUIsDemoController.h"
 #import "afNetworkImageViewDemo.h"
 #import "RatingViewController.h"
-#import "ActuViewController.h"
 #import "afListViewDemoController.h"
 #import "afDiscControllerDemo.h"
 
@@ -31,11 +30,6 @@
          afDiscControllerDemo *f = [[afDiscControllerDemo alloc] init];
          [theViewControllers addObject:f];
          [f release];
-          
-         ActuViewController *rss = [[ActuViewController alloc] init];
-         [theViewControllers addObject:rss];
-         [rss release];
-         
         
         RatingViewController *r = [[RatingViewController alloc] initWithRating:0];
         [theViewControllers addObject:r];
