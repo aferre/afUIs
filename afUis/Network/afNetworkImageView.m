@@ -9,7 +9,7 @@
 #import "afNetworkImageView.h"
 #import "afASIQueue.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UIViewExtensions.h"
+#import <afExtensions/afViewExtensions.h>
 
 @implementation afNetworkImageView
 
