@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface  NSFileManager(NSFileManagerExtensions)
+@interface  NSFileManager(afFileManagerExtensions)
 
 + (NSString *) documentDirectory;
 + (BOOL) removeFileAtPath:(NSString *)filePath;

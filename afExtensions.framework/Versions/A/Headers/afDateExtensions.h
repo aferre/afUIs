@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSDate (afDateExtension) 
+@interface NSDate (afDateExtensions) 
 
 + (NSDate *)stringToDate:(NSString *)theDate
      withLocalIdentifier:(NSString *)li

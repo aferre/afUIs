@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface UIView (UIViewExtensions)
+@interface UIView (afViewExtensions)
 
 - (BOOL) setupFlipTransitionBetweenGoing:(UIView *)goingAwayView 
 							  andComing:(UIView *)comingView

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (afStringExt) 
+@interface NSString (afStringExtensions) 
 
 - (BOOL) isEmpty;
 
