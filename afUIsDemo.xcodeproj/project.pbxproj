@@ -39,10 +39,6 @@
 		383C406D1433A370000132A8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C40611433A35C000132A8 /* Security.framework */; };
 		383C406E1433A370000132A8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C40621433A35C000132A8 /* SystemConfiguration.framework */; };
 		383C40701433A397000132A8 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 383C406F1433A397000132A8 /* libxml2.2.dylib */; };
-		386257C11434929300DD019B /* afDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257BA1434929300DD019B /* afDateExtension.m */; };
-		386257C21434929300DD019B /* afStringExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257BC1434929300DD019B /* afStringExt.m */; };
-		386257C31434929300DD019B /* NSFileManagerExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257BE1434929300DD019B /* NSFileManagerExtensions.m */; };
-		386257C41434929300DD019B /* UIViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257C01434929300DD019B /* UIViewExtensions.m */; };
 		386257D01434939900DD019B /* afASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257C71434939900DD019B /* afASIHTTPRequest.m */; };
 		386257D11434939900DD019B /* afASIQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257C91434939900DD019B /* afASIQueue.m */; };
 		386257D21434939900DD019B /* afNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257CB1434939900DD019B /* afNetwork.m */; };
@@ -201,6 +197,7 @@
 		38C6E17F1435E1F100823E0E /* afListViewTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1781435E1F100823E0E /* afListViewTime.m */; };
 		38C6E1801435E1F100823E0E /* afVerticalListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E17A1435E1F100823E0E /* afVerticalListView.m */; };
 		38C6E1841435E38200823E0E /* afListViewTimed.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C6E1831435E38200823E0E /* afListViewTimed.m */; };
+		38D4ADFA1436047100D67E9E /* afExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4ADF91436047100D67E9E /* afExtensions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,14 +260,6 @@
 		383C40611433A35C000132A8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		383C40621433A35C000132A8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		383C406F1433A397000132A8 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		386257B91434929300DD019B /* afDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afDateExtension.h; sourceTree = "<group>"; };
-		386257BA1434929300DD019B /* afDateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afDateExtension.m; sourceTree = "<group>"; };
-		386257BB1434929300DD019B /* afStringExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afStringExt.h; sourceTree = "<group>"; };
-		386257BC1434929300DD019B /* afStringExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afStringExt.m; sourceTree = "<group>"; };
-		386257BD1434929300DD019B /* NSFileManagerExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerExtensions.h; sourceTree = "<group>"; };
-		386257BE1434929300DD019B /* NSFileManagerExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtensions.m; sourceTree = "<group>"; };
-		386257BF1434929300DD019B /* UIViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExtensions.h; sourceTree = "<group>"; };
-		386257C01434929300DD019B /* UIViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExtensions.m; sourceTree = "<group>"; };
 		386257C61434939900DD019B /* afASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afASIHTTPRequest.h; sourceTree = "<group>"; };
 		386257C71434939900DD019B /* afASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afASIHTTPRequest.m; sourceTree = "<group>"; };
 		386257C81434939900DD019B /* afASIQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afASIQueue.h; sourceTree = "<group>"; };
@@ -454,6 +443,7 @@
 		38C6E17A1435E1F100823E0E /* afVerticalListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afVerticalListView.m; sourceTree = "<group>"; };
 		38C6E1821435E38200823E0E /* afListViewTimed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afListViewTimed.h; sourceTree = "<group>"; };
 		38C6E1831435E38200823E0E /* afListViewTimed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afListViewTimed.m; sourceTree = "<group>"; };
+		38D4ADF91436047100D67E9E /* afExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = afExtensions.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +461,7 @@
 				3882036314339F500053F6AE /* UIKit.framework in Frameworks */,
 				3882036514339F500053F6AE /* Foundation.framework in Frameworks */,
 				3882036714339F500053F6AE /* CoreGraphics.framework in Frameworks */,
+				38D4ADFA1436047100D67E9E /* afExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +474,6 @@
 				383C3FFC1433A271000132A8 /* Rating */,
 				383C400C1433A271000132A8 /* Stacked */,
 				383C40131433A271000132A8 /* Tools */,
-				386257B81434929300DD019B /* Extensions */,
 				386257C51434939800DD019B /* Network */,
 				38C6E16E1435E1F100823E0E /* Lists */,
 				383C3FAB1433A1E4000132A8 /* gdzSingleton.h */,
@@ -588,22 +578,6 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		386257B81434929300DD019B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				386257B91434929300DD019B /* afDateExtension.h */,
-				386257BA1434929300DD019B /* afDateExtension.m */,
-				386257BB1434929300DD019B /* afStringExt.h */,
-				386257BC1434929300DD019B /* afStringExt.m */,
-				386257BD1434929300DD019B /* NSFileManagerExtensions.h */,
-				386257BE1434929300DD019B /* NSFileManagerExtensions.m */,
-				386257BF1434929300DD019B /* UIViewExtensions.h */,
-				386257C01434929300DD019B /* UIViewExtensions.m */,
-			);
-			name = Extensions;
-			path = afUIs/Extensions;
-			sourceTree = SOURCE_ROOT;
-		};
 		386257C51434939800DD019B /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +662,7 @@
 		3882036114339F500053F6AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38D4ADF91436047100D67E9E /* afExtensions.framework */,
 				383C406F1433A397000132A8 /* libxml2.2.dylib */,
 				386258001434947600DD019B /* MobileCoreServices.framework */,
 				383C405C1433A35C000132A8 /* CFNetwork.framework */,
@@ -1139,10 +1114,6 @@
 				383C40591433A2AC000132A8 /* SBJsonBase.m in Sources */,
 				383C405A1433A2AC000132A8 /* SBJsonParser.m in Sources */,
 				383C405B1433A2AC000132A8 /* SBJsonWriter.m in Sources */,
-				386257C11434929300DD019B /* afDateExtension.m in Sources */,
-				386257C21434929300DD019B /* afStringExt.m in Sources */,
-				386257C31434929300DD019B /* NSFileManagerExtensions.m in Sources */,
-				386257C41434929300DD019B /* UIViewExtensions.m in Sources */,
 				386257D01434939900DD019B /* afASIHTTPRequest.m in Sources */,
 				386257D11434939900DD019B /* afASIQueue.m in Sources */,
 				386257D21434939900DD019B /* afNetwork.m in Sources */,
@@ -1240,6 +1211,10 @@
 		3882038014339F500053F6AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "afUIsDemo/afUIsDemo-Prefix.pch";
 				INFOPLIST_FILE = "afUIsDemo/afUIsDemo-Info.plist";
@@ -1251,6 +1226,10 @@
 		3882038114339F500053F6AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "afUIsDemo/afUIsDemo-Prefix.pch";
 				INFOPLIST_FILE = "afUIsDemo/afUIsDemo-Info.plist";
