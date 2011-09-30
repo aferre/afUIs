@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "afListView.h"
+#import "afHorizontalStackedView.h"
 
 @interface afHorizontalListView : afListView{
 	

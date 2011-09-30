@@ -8,7 +8,6 @@
 
 #import "afListView.h"
 #import "afHorizontalListView.h"
-#import <QuartzCore/QuartzCore.h>
 
 @implementation afListView
 
@@ -68,6 +67,9 @@
 	}
 }
 
+-(void) animateToSelected{
+    
+}
 #pragma mark -
 #pragma mark == Selection handling and animation== 
 #pragma mark -
@@ -150,9 +152,20 @@
 }
 
 - (void) dealloc {
-	selectionDelegate = nil;
-	[listViews release];
 	
+    selectionDelegate = nil;
+	
+    dataSource = nil;
+    
+    [listViews release];
+	listViews = nil;
+    
+    [previousArrow release];
+    previousArrow = nil;
+    
+    [nextArrow release];
+    nextArrow = nil;
+    
 	[super dealloc];
 }
 

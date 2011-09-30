@@ -7,8 +7,6 @@
 //
 
 #import "afHorizontalListView.h"
-#import <QuartzCore/QuartzCore.h>
-#import "afHorizontalStackedView.h"
 
 @implementation afHorizontalListView
 
@@ -78,9 +76,6 @@
 		
 		[self addSubview:previousArrow];
 	}
-	else {
-		
-	}
 	
 	if (!nextArrow) {
 		
@@ -92,9 +87,6 @@
 		[nextArrow addTarget:self action:@selector(selectNext) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview:nextArrow];
-		
-	}
-	else {
 		
 	}
 	
@@ -167,6 +159,10 @@
 	}
 	
 	[super touchesEnded:touches withEvent:event];
+}
+
+-(void) dealloc{
+    [super dealloc];
 }
 
 @end

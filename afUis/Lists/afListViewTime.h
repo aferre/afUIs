@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "afHorizontalStackedView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface afListViewTime : UIView {
 	// Current state support

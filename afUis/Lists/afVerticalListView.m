@@ -7,8 +7,6 @@
 //
 
 #import "afVerticalListView.h"
-#import <QuartzCore/QuartzCore.h>
-#import "afVerticalStackedView.h"
 
 @implementation afVerticalListView
 
@@ -24,21 +22,12 @@
 													andWidthMargin:5
 												   andHeightMargin:5];
 		
-		//listViews = [[afHorizontalListView alloc] initWithFrame:CGRectMake(0, 5, theFrame.size.width,Image_Height)];
 		listViews.backgroundColor = [UIColor clearColor];
 		listViews.layer.masksToBounds = YES;
 		listViews.opaque = NO;
 		
 		[self reloadData];
-		
-	/*	UIImage *maskImage = [UIImage imageNamed:@"FusedMaskDDD.png"];
-		CALayer *maskLayer = [[CALayer alloc] init];
-		maskLayer.frame = CGRectMake(5, 0,	maskImage.size.width, maskImage.size.height);	
-		maskLayer.contents = (id)maskImage.CGImage;
-		listViews.layer.mask = maskLayer;
-	*/	
 		[self addSubview:listViews];
-		
 		[self setHasNavArrow: hasArrows];
 	}
 	return self;
@@ -61,6 +50,7 @@
 		[UIView commitAnimations];
 	}
 	
+    [super animateToSelected];
 }
 
 - (void) setHasNavArrow:(BOOL)nav{
@@ -180,4 +170,8 @@
 	[super touchesEnded:touches withEvent:event];
 }
 
+
+-(void) dealloc{
+    [super dealloc];
+}
 @end

@@ -8,7 +8,6 @@
 
 #import "afListViewTime.h"
 
-#import <QuartzCore/QuartzCore.h>
 
 /*
  *	Parameters to tweak layout and animation behaviors

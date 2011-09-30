@@ -6,8 +6,8 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "afListView.h"
+#import "afVerticalStackedView.h"
 
 @interface afVerticalListView : afListView {
 

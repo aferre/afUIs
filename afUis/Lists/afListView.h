@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "afStackedView.h"
+#import <QuartzCore/QuartzCore.h>
+
 #define Image_Width 95
 #define Image_Height Image_Width
 #define Margin 3
@@ -70,6 +71,8 @@
 - (void) selectNext;
 
 - (void) selectPrevious;
+
+- (void) animateToSelected;
 
 @end
 
