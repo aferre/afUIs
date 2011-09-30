@@ -28,7 +28,6 @@ typedef enum afListViewStyle {
 	
 	UILabel *theTitle;
 	UILabel *theSubtitle;
-	UIPageControl *thePageControl;
 	
 	BOOL hasTitle;
 	BOOL hasSubtitle;
@@ -38,14 +37,13 @@ typedef enum afListViewStyle {
 }
 
 @property (assign) id<afListViewContainerDelegate> delegate;
-@property (assign) afListViewStyle style;
+@property (assign, setter = setStyle:) afListViewStyle style;
 @property (assign) BOOL hasTitle;
 @property (assign) BOOL hasSubtitle;
 @property (assign) BOOL hasPageControl;
 @property (nonatomic,retain) afListView *theListView;
 @property (nonatomic,retain) UILabel *theTitle;
 @property (nonatomic,retain) UILabel *theSubtitle;
-@property (nonatomic,retain) UIPageControl *thePageControl;
 @property (nonatomic,retain) NSMutableArray *pageControls;
 
 - (id)initWithFrame:(CGRect)frame
@@ -55,7 +53,19 @@ typedef enum afListViewStyle {
 	  andListViewSize:(CGSize)listViewSize
 			 andStyle:(afListViewStyle)s;
 
--(CGFloat) computeViewHeightForStyle:(afListViewStyle) s;
+- (CGFloat) computeViewHeightForStyle:(afListViewStyle) s;
+
+- (int) computePageControlsNumberForWidth:(CGFloat)width itemsNumber:(int) itemsNumber;
+
+- (int) itemsNumberPerPageControlForWidth:(CGFloat)width;
+
+- (void) setupSubtitleLabel:(UIView *)previousView;
+
+- (void) setupTitleLabel:(UIView *)previousView;
+
+- (void) setupPageControl:(UIView *)previousView;
+
+- (void) updatePageControlsWithIndex:(int) index;
 
 @end
 

@@ -80,8 +80,8 @@
 
 @optional
 - (void) isUnderSelection:(int)index;
-- (void) selectedIndex:(int)theQuizzIndex;
-- (void) hasBeenSelectedByUser:(NSString *)theID;
+- (void) selectedIndex:(int)index;
+- (void) hasBeenSelected:(NSString *)theID;
 - (void) clicked;
 
 @end

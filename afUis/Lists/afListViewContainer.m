@@ -15,7 +15,7 @@
 
 @implementation afListViewContainer
 
-@synthesize theTitle,theSubtitle,thePageControl,theListView,style,delegate;
+@synthesize theTitle,theSubtitle,theListView,style,delegate;
 @synthesize hasTitle,hasSubtitle,hasPageControl,pageControls;
 
 #pragma mark -
@@ -75,10 +75,14 @@
 #pragma mark == listView selection Delegate ==
 #pragma mark -
 
-- (void) isUnderSelection:(int)index{
-	if (thePageControl) {
-		thePageControl.currentPage = index;
-	}
+- (void) isUnderSelection:(int) index{
+    
+	if (pageControls){
+        
+        if ([pageControls count] !=0 ) {
+            [self updatePageControlsWithIndex:index];
+        }
+    }
 	if (theTitle) {
 		theTitle.text = [NSString stringWithFormat:@"%d",index];
 	}
@@ -87,11 +91,11 @@
 	}
 }
 
-- (void) selectedIndex:(int)index{
+- (void) selectedIndex:(int) index{
     
 }
 
-- (void) hasBeenSelectedByUser:(NSString *)theID{
+- (void) hasBeenSelected:(NSString *) theID{
 	
 }
 
@@ -99,8 +103,24 @@
     
 }
 
+- (void) updatePageControlsWithIndex:(int) index{
+    
+    int itemsPerRow = [self itemsNumberPerPageControlForWidth:self.frame.size.width];
+    
+    int indexRow = 1;
+    
+    while (indexRow*itemsPerRow < index + 1) {
+        indexRow ++;
+    }
+    
+    int pageControlIndex = index - (indexRow - 1) * itemsPerRow;
+    
+    UIPageControl *concernedPG = [pageControls objectAtIndex:indexRow - 1];
+    
+    concernedPG.currentPage = pageControlIndex;
+}
 
--(CGFloat) computeViewHeightForStyle:(afListViewStyle) s{
+- (CGFloat) computeViewHeightForStyle:(afListViewStyle) s{
 	
 	switch (s) {
 		case PageControl:
@@ -125,19 +145,21 @@
 	
 }
 
-- (void) pageChanged:(id)sender{
-	[theListView setSelectedAndAnimate: thePageControl.currentPage + 1 ];
+- (void) pageChanged:(UIPageControl *)sender{
+    int row = [pageControls indexOfObject:sender];
+    
+    int selection = sender.currentPage + 1;
+    
+    int itemsPerRow = [self itemsNumberPerPageControlForWidth:self.frame.size.width];
+    
+    int finalIndex = row * itemsPerRow + selection;
+    
+	[theListView setSelectedAndAnimate: finalIndex];
 }
 
 - (int) computePageControlsNumberForWidth:(CGFloat)width itemsNumber:(int) itemsNumber{
     
-    //you can fit 20 page control dots on a full width view on a 320 px screen (iphone).
-    
-    int ratio = floor(320/19);
-    
-    int pgDotsYouCanFitInOnePG = width / ratio ;
-    
-    int rowsYouWillNeedToDisplayAllDots = ceil((double)itemsNumber/(double)pgDotsYouCanFitInOnePG);
+    int rowsYouWillNeedToDisplayAllDots = ceil((double)itemsNumber/(double)[self itemsNumberPerPageControlForWidth:width]);
     
     return rowsYouWillNeedToDisplayAllDots;
 }
@@ -153,348 +175,136 @@
     return pgDotsYouCanFitInOnePG;
 }
 
+- (void) setupSubtitleLabel:(UIView *)previousView{
+    
+    if (!theSubtitle) {
+        
+        theSubtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
+                                                                previousView.frame.size.height + previousView.frame.origin.y + 5, 
+                                                                self.frame.size.width,
+                                                                20)];
+        [theSubtitle setTextColor:[UIColor blackColor]];
+        [theSubtitle setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+        [theSubtitle setBackgroundColor:[UIColor clearColor]];
+        [theSubtitle setTextAlignment:UITextAlignmentCenter];
+        [theSubtitle setLineBreakMode:UILineBreakModeTailTruncation];
+        theSubtitle.numberOfLines = 1;
+        theSubtitle.hidden = NO;
+    }
+    
+    [theSubtitle setText:@"subtitle"];
+    
+    if (!theSubtitle.superview) {
+        [self addSubview:theSubtitle];
+    }
+    
+}
+
+- (void) setupTitleLabel:(UIView *)previousView{
+    if (!theTitle) {
+        theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
+                                                             previousView.frame.size.height + previousView.frame.origin.y + 5, 
+                                                             self.frame.size.width,
+                                                             20)];
+        [theTitle setTextColor:[UIColor blackColor]];
+        [theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
+        [theTitle setBackgroundColor:[UIColor clearColor]];
+        [theTitle setTextAlignment:UITextAlignmentCenter];
+        [theTitle setLineBreakMode:UILineBreakModeTailTruncation];
+        theTitle.numberOfLines = 1;	
+        theTitle.hidden = NO;
+    }
+    [theTitle setText:@"title"];
+    if (!theTitle.superview) {
+        [self addSubview:theTitle];
+    }
+}
+
+- (void) setupPageControl:(UIView *)previousView{
+    int pageControlNumber = [self computePageControlsNumberForWidth:self.frame.size.width itemsNumber:[theListView.listViews.subviews count]];
+    int itemsPerPageControl = [self itemsNumberPerPageControlForWidth:self.frame.size.width];
+    UIPageControl *lastPageControl = nil;
+    
+    if (!pageControls){
+        pageControls = [[NSMutableArray alloc] init];
+        
+        for (int i = 0 ; i < pageControlNumber ; i++){
+            
+            int remainingPGs = pageControlNumber - i;
+            UIPageControl *pg ;
+            
+            if (!lastPageControl)
+                pg = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
+                                                                     previousView.frame.size.height + previousView.frame.origin.y + 5, 
+                                                                     self.frame.size.width, 
+                                                                     PGHeight)];
+            else
+                pg = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
+                                                                     lastPageControl.frame.size.height + lastPageControl.frame.origin.y + 5, 
+                                                                     self.frame.size.width, 
+                                                                     PGHeight)];
+            pg.backgroundColor = [UIColor blackColor];
+            [pg addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
+            pg.userInteractionEnabled = YES;
+            pg.hidden = NO;
+            if (remainingPGs > 1){
+                pg.numberOfPages = itemsPerPageControl;
+            }
+            else{
+                pg.numberOfPages = [theListView.listViews.subviews count] - (pageControlNumber - 1) * itemsPerPageControl;
+            }
+            [self addSubview:pg];
+            [pageControls addObject:pg];
+            [pg release];
+            lastPageControl = [pageControls lastObject];
+        }
+    }
+    
+}
+
 - (void) setStyle:(afListViewStyle)theStyle{
 	style = theStyle;
 	switch (theStyle) {
 		case PageControl:{
-			if (!thePageControl) {
-				thePageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
-																				 theListView.frame.size.height + theListView.frame.origin.y + 5, 
-																				 self.frame.size.width, 
-																				 PGHeight)];
-				thePageControl.backgroundColor = [UIColor blackColor];
-				[thePageControl addTarget:self action:@selector(pageChanged) forControlEvents:UIControlEventValueChanged];
-				thePageControl.userInteractionEnabled = YES;
-				thePageControl.hidden = NO;	
-			}
-			thePageControl.numberOfPages = [theListView.listViews.subviews count];
-			
-			if (!thePageControl.superview) {
-				[self addSubview:thePageControl];
-			}
+			[self setupPageControl:theListView];
 		}
 			break;
 		case Title:
 		{
-			if (!theTitle) {
-				theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-																	 theListView.frame.size.height + theListView.frame.origin.y + 5, 
-																	 self.frame.size.width,
-																	 20)];
-				[theTitle setTextColor:[UIColor blackColor]];
-				[theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
-				[theTitle setBackgroundColor:[UIColor clearColor]];
-				[theTitle setTextAlignment:UITextAlignmentCenter];
-				[theTitle setLineBreakMode:UILineBreakModeTailTruncation];
-				theTitle.numberOfLines = 1;	
-				theTitle.hidden = NO;
-			}
-			[theTitle setText:@"title"];
-			if (!theTitle.superview) {
-				[self addSubview:theTitle];
-			}
+            [self setupTitleLabel:theListView];
 			
 		}
 			break;
 		case PageControl_Title:
 		{
-			if (!thePageControl) {
-				thePageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
-																				 theListView.frame.size.height + theListView.frame.origin.y + 5, 
-																				 self.frame.size.width, 
-																				 PGHeight)];
-				thePageControl.backgroundColor = [UIColor blackColor];
-				[thePageControl addTarget:self action:@selector(pageChanged) forControlEvents:UIControlEventValueChanged];
-				thePageControl.userInteractionEnabled = YES;
-				thePageControl.hidden = NO;	
-			}
-			thePageControl.numberOfPages = [theListView.listViews.subviews count];
+			[self setupPageControl:theListView];            
+            UIPageControl *lastPageControl = [pageControls lastObject];
 			
-			if (!thePageControl.superview) {
-				[self addSubview:thePageControl];
-			}
-			
-			
-			if (!theTitle) {
-				theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-																	 thePageControl.frame.size.height + thePageControl.frame.origin.y + 5, 
-																	 self.frame.size.width,
-																	 20)];
-				[theTitle setTextColor:[UIColor blackColor]];
-				[theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
-				[theTitle setBackgroundColor:[UIColor clearColor]];
-				[theTitle setTextAlignment:UITextAlignmentCenter];
-				[theTitle setLineBreakMode:UILineBreakModeTailTruncation];
-				theTitle.numberOfLines = 1;	
-				theTitle.hidden = NO;
-			}
-			[theTitle setText:@"title"];
-			if (!theTitle.superview) {
-				[self addSubview:theTitle];
-			}
+            [self setupTitleLabel:lastPageControl];
 			
 		}
 			break;
 		case PageControl_Title_Subtitle:
 		{
-            //hasPageControl = YES;
-			
-            int pageControlNumber = [self computePageControlsNumberForWidth:self.frame.size.width itemsNumber:[theListView.listViews.subviews count]];
-            int itemsPerPageControl = [self itemsNumberPerPageControlForWidth:self.frame.size.width];
-            UIPageControl *lastPageControl = nil;
+            [self setupPageControl:theListView];            
             
-            if (!pageControls){
-                pageControls = [NSMutableArray array];
-                
-                for (int i = 0 ; i < pageControlNumber ; i++){
-                    
-                    int remainingPGs = pageControlNumber - i;
-                    UIPageControl *pg ;
-                    
-                    if (!lastPageControl)
-                        pg = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
-                                                                             theListView.frame.size.height + theListView.frame.origin.y + 5, 
-                                                                             self.frame.size.width, 
-                                                                             PGHeight)];
-                    else
-                        pg = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
-                                                                             lastPageControl.frame.size.height + lastPageControl.frame.origin.y + 5, 
-                                                                             self.frame.size.width, 
-                                                                             PGHeight)];
-                    pg.backgroundColor = [UIColor blackColor];
-                    [pg addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
-                    pg.userInteractionEnabled = YES;
-                    pg.hidden = NO;	
-                    if (remainingPGs > 1){
-                        pg.numberOfPages = itemsPerPageControl;
-                    }
-                    else{
-                        NSLog(@"%d page control dots",[theListView.listViews.subviews count] - (pageControlNumber - 1) * itemsPerPageControl);
-                        pg.numberOfPages = [theListView.listViews.subviews count] - (pageControlNumber - 1) * itemsPerPageControl;
-                    }
-                    [self addSubview:pg];
-                    [pageControls addObject:pg];
-                    [pg release];
-                    lastPageControl = [pageControls lastObject];
-                }
-            }
-            
-            /*if (!thePageControl) {
-             thePageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
-             theListView.frame.size.height + theListView.frame.origin.y + 5, 
-             self.frame.size.width, 
-             PGHeight)];
-             thePageControl.backgroundColor = [UIColor blackColor];
-             [thePageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
-             thePageControl.userInteractionEnabled = YES;
-             thePageControl.hidden = NO;	
-             }
-             thePageControl.numberOfPages = [theListView.listViews.subviews count];
-             
-             if (!thePageControl.superview) {
-             [self addSubview:thePageControl];
-             }
-             
-             */
-            
-			if (!theTitle) {
-				theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-																	 lastPageControl.frame.size.height + lastPageControl.frame.origin.y + 5, 
-																	 self.frame.size.width,
-																	 20)];
-				[theTitle setTextColor:[UIColor blackColor]];
-				[theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
-				[theTitle setBackgroundColor:[UIColor clearColor]];
-				[theTitle setTextAlignment:UITextAlignmentCenter];
-				[theTitle setLineBreakMode:UILineBreakModeTailTruncation];
-				theTitle.numberOfLines = 1;	
-				theTitle.hidden = NO;
-			}
-			[theTitle setText:@"title"];
-			if (!theTitle.superview) {
-				[self addSubview:theTitle];
-			}
+            UIPageControl *lastPageControl = [pageControls lastObject];
 			
-			if (!theSubtitle) {
-				
-				theSubtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-																		theTitle.frame.size.height + theTitle.frame.origin.y + 5, 
-																		self.frame.size.width,
-																		20)];
-				[theSubtitle setTextColor:[UIColor blackColor]];
-				[theSubtitle setFont:[UIFont fontWithName:@"Helvetica" size:12]];
-				[theSubtitle setBackgroundColor:[UIColor clearColor]];
-				[theSubtitle setTextAlignment:UITextAlignmentCenter];
-				[theSubtitle setLineBreakMode:UILineBreakModeTailTruncation];
-				theSubtitle.numberOfLines = 1;
-				theSubtitle.hidden = NO;
-			}
-			
-			[theSubtitle setText:@"subtitle"];
-			
-			if (!theSubtitle.superview) {
-				[self addSubview:theSubtitle];
-			}
-			
+            [self setupTitleLabel:lastPageControl];
+			[self setupSubtitleLabel:theTitle];
         }
             break;
         case Title_Subtitle:
-            if (!theTitle) {
-                theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-                                                                     theListView.frame.size.height + theListView.frame.origin.y + 5, 
-                                                                     self.frame.size.width,
-                                                                     20)];
-                [theTitle setTextColor:[UIColor blackColor]];
-                [theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
-                [theTitle setBackgroundColor:[UIColor clearColor]];
-                [theTitle setTextAlignment:UITextAlignmentCenter];
-                [theTitle setLineBreakMode:UILineBreakModeTailTruncation];
-                theTitle.numberOfLines = 1;	
-                theTitle.hidden = NO;
-            }
-            [theTitle setText:@"title"];
-            if (!theTitle.superview) {
-                [self addSubview:theTitle];
-            }
-            
-            if (!theSubtitle) {
-                
-                theSubtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
-                                                                        theTitle.frame.size.height + theTitle.frame.origin.y + 5, 
-                                                                        self.frame.size.width,
-                                                                        20)];
-                [theSubtitle setTextColor:[UIColor blackColor]];
-                [theSubtitle setFont:[UIFont fontWithName:@"Helvetica" size:12]];
-                [theSubtitle setBackgroundColor:[UIColor clearColor]];
-                [theSubtitle setTextAlignment:UITextAlignmentCenter];
-                [theSubtitle setLineBreakMode:UILineBreakModeTailTruncation];
-                theSubtitle.numberOfLines = 1;
-                theSubtitle.hidden = NO;
-            }
-            
-            [theSubtitle setText:@"subtitle"];
-            
-            if (!theSubtitle.superview) {
-                [self addSubview:theSubtitle];
-            }
-            
+        {
+            [self setupTitleLabel:theListView];
+            [self setupSubtitleLabel:theTitle];
+        }
             break;
         default:
             break;
     }
 }
-/*
- - (void) setHasTitle:(BOOL)hasIt{
- hasTitle = hasIt;
- if (hasIt) {
- 
- if (!theTitle) {
- if (!thePageControl) theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
- theListView.frame.size.height + theListView.frame.origin.y + 5, 
- self.frame.size.width,
- 20)];
- else theTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
- thePageControl.frame.size.height + thePageControl.frame.origin.y + 5, 
- self.frame.size.width,
- 20)];
- }
- [theTitle setTextColor:[UIColor blackColor]];
- [theTitle setText:@"title"];
- [theTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
- [theTitle setBackgroundColor:[UIColor clearColor]];
- [theTitle setTextAlignment:UITextAlignmentCenter];
- [theTitle setLineBreakMode:UILineBreakModeTailTruncation];
- //	 theTitle.shadowColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1.0];
- //	 theTitle.shadowOffset = CGSizeMake(0,1);
- theTitle.numberOfLines = 1;	
- theTitle.hidden = NO;
- 
- if (!theTitle.superview) {
- [self addSubview:theTitle];
- }
- }
- else {
- if (theTitle) {
- theTitle.hidden = YES;
- }
- }
- 
- }
- 
- - (void) setHasSubtitle:(BOOL) hasIt{
- hasSubtitle = hasIt;
- if (hasIt) {
- 
- if (!theSubtitle) {
- 
- if (theTitle) {
- theSubtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
- theTitle.frame.size.height + theTitle.frame.origin.y + 5, 
- self.frame.size.width,
- 20)];
- 
- }
- else if (thePageControl) {
- theSubtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 
- thePageControl.frame.size.height + thePageControl.frame.origin.y + 5, 
- self.frame.size.width,
- 20)];
- 
- }
- 
- }
- 
- [theSubtitle setTextColor:[UIColor blackColor]];
- [theSubtitle setText:@"subtitle"];
- [theSubtitle setFont:[UIFont fontWithName:@"Helvetica" size:12]];
- [theSubtitle setBackgroundColor:[UIColor clearColor]];
- [theSubtitle setTextAlignment:UITextAlignmentCenter];
- [theSubtitle setLineBreakMode:UILineBreakModeTailTruncation];
- //	 theTitle.shadowColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1.0];
- //	 theTitle.shadowOffset = CGSizeMake(0,1);
- theSubtitle.numberOfLines = 1;
- theSubtitle.hidden = NO;
- if (!theSubtitle.superview) {
- [self addSubview:theSubtitle];
- }
- }
- else {
- if (theSubtitle) {
- theSubtitle.hidden = YES;
- }
- }
- 
- 
- }
- 
- - (void) setHasPG:(BOOL)hasIt{
- hasPageControl = hasIt;
- if (hasIt) {
- 
- if (!thePageControl) {
- thePageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,
- theListView.frame.size.height + theListView.frame.origin.y + 5, 
- self.frame.size.width, 
- 5)];
- 
- thePageControl.backgroundColor = [UIColor blackColor];
- thePageControl.numberOfPages = [theListView.listViews.subviews count];
- 
- [thePageControl addTarget:self action:@selector(pageChanged) forControlEvents:UIControlEventValueChanged];
- thePageControl.userInteractionEnabled = YES;
- thePageControl.hidden = NO;	
- }
- if (!thePageControl.superview) {
- [self addSubview:thePageControl];
- }
- }
- else {
- if (thePageControl) 
- thePageControl.hidden = YES;
- }
- 
- }
- */
+
 - (void)dealloc {
     
     delegate = nil;
@@ -504,9 +314,6 @@
     
     [theSubtitle release];
     theSubtitle = nil;
-    
-    [thePageControl release];
-    thePageControl  = nil;
     
 	[super dealloc];
 }
