@@ -46,6 +46,7 @@ typedef enum afListViewStyle {
 @property (nonatomic,retain) UILabel *theTitle;
 @property (nonatomic,retain) UILabel *theSubtitle;
 @property (nonatomic,retain) UIPageControl *thePageControl;
+@property (nonatomic,retain) NSMutableArray *pageControls;
 
 - (id)initWithFrame:(CGRect)frame
 	andListViewSize:(CGSize)listViewSize;
