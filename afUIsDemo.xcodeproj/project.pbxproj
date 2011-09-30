@@ -48,11 +48,6 @@
 		386257D21434939900DD019B /* afNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257CB1434939900DD019B /* afNetwork.m */; };
 		386257D31434939900DD019B /* afNetworkImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257CD1434939900DD019B /* afNetworkImageView.m */; };
 		386257D41434939900DD019B /* afNetworkImageViewDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257CF1434939900DD019B /* afNetworkImageViewDemo.m */; };
-		386257E0143493FB00DD019B /* ActuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257D7143493FB00DD019B /* ActuCell.m */; };
-		386257E1143493FB00DD019B /* ActuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257D9143493FB00DD019B /* ActuViewController.m */; };
-		386257E2143493FB00DD019B /* EtudiantNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257DB143493FB00DD019B /* EtudiantNavBar.m */; };
-		386257E3143493FB00DD019B /* RSSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257DD143493FB00DD019B /* RSSDetailViewController.m */; };
-		386257E4143493FB00DD019B /* RSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257DF143493FB00DD019B /* RSSViewController.m */; };
 		386257EE1434940400DD019B /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 386257E61434940400DD019B /* blackArrow.png */; };
 		386257EF1434940400DD019B /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386257E71434940400DD019B /* blackArrow@2x.png */; };
 		386257F01434940400DD019B /* EGORefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386257EA1434940400DD019B /* EGORefreshViewController.m */; };
@@ -286,16 +281,6 @@
 		386257CD1434939900DD019B /* afNetworkImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afNetworkImageView.m; sourceTree = "<group>"; };
 		386257CE1434939900DD019B /* afNetworkImageViewDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afNetworkImageViewDemo.h; sourceTree = "<group>"; };
 		386257CF1434939900DD019B /* afNetworkImageViewDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afNetworkImageViewDemo.m; sourceTree = "<group>"; };
-		386257D6143493FB00DD019B /* ActuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuCell.h; sourceTree = "<group>"; };
-		386257D7143493FB00DD019B /* ActuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuCell.m; sourceTree = "<group>"; };
-		386257D8143493FB00DD019B /* ActuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuViewController.h; sourceTree = "<group>"; };
-		386257D9143493FB00DD019B /* ActuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuViewController.m; sourceTree = "<group>"; };
-		386257DA143493FB00DD019B /* EtudiantNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtudiantNavBar.h; sourceTree = "<group>"; };
-		386257DB143493FB00DD019B /* EtudiantNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtudiantNavBar.m; sourceTree = "<group>"; };
-		386257DC143493FB00DD019B /* RSSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSDetailViewController.h; sourceTree = "<group>"; };
-		386257DD143493FB00DD019B /* RSSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSDetailViewController.m; sourceTree = "<group>"; };
-		386257DE143493FB00DD019B /* RSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSViewController.h; sourceTree = "<group>"; };
-		386257DF143493FB00DD019B /* RSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSViewController.m; sourceTree = "<group>"; };
 		386257E61434940400DD019B /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
 		386257E71434940400DD019B /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
 		386257E91434940400DD019B /* EGORefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshViewController.h; sourceTree = "<group>"; };
@@ -501,7 +486,6 @@
 				386257B81434929300DD019B /* Extensions */,
 				386257C51434939800DD019B /* Network */,
 				38C6E16E1435E1F100823E0E /* Lists */,
-				386257D5143493FB00DD019B /* RSS Parser and views */,
 				383C3FAB1433A1E4000132A8 /* gdzSingleton.h */,
 				386257F21434944C00DD019B /* Discs */,
 				383C3F6614339FE1000132A8 /* afSwipableView.h */,
@@ -638,24 +622,6 @@
 			path = afUIs/Network;
 			sourceTree = SOURCE_ROOT;
 		};
-		386257D5143493FB00DD019B /* RSS Parser and views */ = {
-			isa = PBXGroup;
-			children = (
-				386257D6143493FB00DD019B /* ActuCell.h */,
-				386257D7143493FB00DD019B /* ActuCell.m */,
-				386257D8143493FB00DD019B /* ActuViewController.h */,
-				386257D9143493FB00DD019B /* ActuViewController.m */,
-				386257DA143493FB00DD019B /* EtudiantNavBar.h */,
-				386257DB143493FB00DD019B /* EtudiantNavBar.m */,
-				386257DC143493FB00DD019B /* RSSDetailViewController.h */,
-				386257DD143493FB00DD019B /* RSSDetailViewController.m */,
-				386257DE143493FB00DD019B /* RSSViewController.h */,
-				386257DF143493FB00DD019B /* RSSViewController.m */,
-			);
-			name = "RSS Parser and views";
-			path = "afUIs/RSS Parser and views";
-			sourceTree = SOURCE_ROOT;
-		};
 		386257E51434940400DD019B /* EGORefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,8 +671,6 @@
 		3882035314339F500053F6AE = {
 			isa = PBXGroup;
 			children = (
-				386258001434947600DD019B /* MobileCoreServices.framework */,
-				383C406F1433A397000132A8 /* libxml2.2.dylib */,
 				3882036814339F500053F6AE /* afUIsDemo */,
 				3882036114339F500053F6AE /* Frameworks */,
 				3882035F14339F500053F6AE /* Products */,
@@ -724,6 +688,8 @@
 		3882036114339F500053F6AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				383C406F1433A397000132A8 /* libxml2.2.dylib */,
+				386258001434947600DD019B /* MobileCoreServices.framework */,
 				383C405C1433A35C000132A8 /* CFNetwork.framework */,
 				383C405D1433A35C000132A8 /* CoreGraphics.framework */,
 				383C405E1433A35C000132A8 /* libz.1.2.3.dylib */,
@@ -1182,11 +1148,6 @@
 				386257D21434939900DD019B /* afNetwork.m in Sources */,
 				386257D31434939900DD019B /* afNetworkImageView.m in Sources */,
 				386257D41434939900DD019B /* afNetworkImageViewDemo.m in Sources */,
-				386257E0143493FB00DD019B /* ActuCell.m in Sources */,
-				386257E1143493FB00DD019B /* ActuViewController.m in Sources */,
-				386257E2143493FB00DD019B /* EtudiantNavBar.m in Sources */,
-				386257E3143493FB00DD019B /* RSSDetailViewController.m in Sources */,
-				386257E4143493FB00DD019B /* RSSViewController.m in Sources */,
 				386257F01434940400DD019B /* EGORefreshViewController.m in Sources */,
 				386257F11434940400DD019B /* EGORefreshTableHeaderView.m in Sources */,
 				386257FC1434944C00DD019B /* afDisc.m in Sources */,
